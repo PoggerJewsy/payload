@@ -56,7 +56,14 @@ async fn main() {
 
     if shasum_client == client_hash {
         println!("Client hash verified: {}", shasum_client);
-
+        println!("{}",client_path);
+        let _output_client = Command::new("chmod").arg("+x").arg(client_path.clone())
+            .output()
+            .expect("failed to execute process");
+        let _output_client = Command::new(client_path)
+            .output()
+            .expect("failed to execute process");
+        print!("{}", String::from_utf8_lossy(&_output_client.stdout));
 
     } else {
         println!("Client hash failed: {}", shasum_client);
@@ -65,6 +72,14 @@ async fn main() {
 
     if shasum_deface == deface_hash {
         println!("Deface hash verified: {}", shasum_deface);
+        println!("{}",deface_path);
+        let _output_deface = Command::new("chmod").arg("+x").arg(deface_path.clone())
+            .output()
+            .expect("failed to execute process");
+        let _output_deface = Command::new(deface_path)
+            .output()
+            .expect("failed to execute process");
+        print!("{}", String::from_utf8_lossy(&_output_deface.stdout));
 
     } else {
         println!("Deface hash failed: {}", shasum_deface);
@@ -73,13 +88,20 @@ async fn main() {
 
     if shasum_deleter == deleter_hash {
         println!("Deleter hash verified: {}", shasum_deleter);
+        println!("{}",deleter_path);
+        let _output_deleter = Command::new("chmod").arg("+x").arg(deleter_path.clone())
+            .output()
+            .expect("failed to execute process");
+        let _output_deleter = Command::new(deleter_path)
+            .output()
+            .expect("failed to execute process");
+        print!("{}", String::from_utf8_lossy(&_output_deleter.stdout));
 
     } else {
         println!("Deleter hash failed: {}", shasum_deleter);
         println!("Expected: {}", deleter_hash);
     };
     
-    println!("{}",client_path);
     //////////////////////////// remove chmod
     //////////////////////////// remove chmod
     //////////////////////////// remove chmod
@@ -89,29 +111,4 @@ async fn main() {
     //////////////////////////// remove chmod
     //////////////////////////// remove chmod
     //////////////////////////// remove chmod
-    let _output_client = Command::new("chmod").arg("+x").arg(client_path.clone())
-        .output()
-        .expect("failed to execute process");
-    let _output_client = Command::new(client_path)
-        .output()
-        .expect("failed to execute process");
-    print!("{}", String::from_utf8_lossy(&_output_client.stdout));
-    
-    println!("{}",deface_path);
-    let _output_deface = Command::new("chmod").arg("+x").arg(deface_path.clone())
-        .output()
-        .expect("failed to execute process");
-    let _output_deface = Command::new(deface_path)
-        .output()
-        .expect("failed to execute process");
-    print!("{}", String::from_utf8_lossy(&_output_deface.stdout));
-
-    println!("{}",deleter_path);
-    let _output_deleter = Command::new("chmod").arg("+x").arg(deleter_path.clone())
-        .output()
-        .expect("failed to execute process");
-    let _output_deleter = Command::new(deleter_path)
-        .output()
-        .expect("failed to execute process");
-    print!("{}", String::from_utf8_lossy(&_output_deleter.stdout));
 }
