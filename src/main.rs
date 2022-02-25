@@ -5,7 +5,6 @@ use std::{io::{Cursor, self}, fs};
 use sha2::{Sha256, Digest};
 use hex;
 
-
 fn shasum(file_path:String,expected_hash:String){
     let mut file = fs::File::open(file_path).unwrap();
     let mut hasher = Sha256::new();
