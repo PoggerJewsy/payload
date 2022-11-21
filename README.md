@@ -1,5 +1,5 @@
 # payload
-[################-----] 80% Complete
+[#####################] 100% Complete
 ## To do 
-### test it
-### compile other repos
+### ~~test it~~
+### ~~compile other repos~~
